@@ -1,7 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 
-INDEED_URL = "https://kr.indeed.com/%EC%B7%A8%EC%97%85?q=python&limit=50"
+LIMIT = 50
+URL = f"https://kr.indeed.com/%EC%B7%A8%EC%97%85?q=python&limit={LIMIT}"
 
 def extract_indeed_pages():
     result = requests.get(INDEED_URL)
