@@ -35,7 +35,9 @@ def extract_indeed_jobs(last_page):
         company = result.find("span", {"class": "company"})
         company_anchor = company.find("a")
         if company_anchor is not None:
-            print(company_anchor.string)
-        else :
-            print(company.string)
+            company = company_anchor.string
+        else:
+            company = company.string
+        company = company.strip()
+        print(company)
     return jobs
