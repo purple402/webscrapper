@@ -16,3 +16,6 @@ for link in links[:-1]:
     # <a>안에 <span> 하나만 있고, 그 안에 string이 유일하기 때문에
     # link.find('span').string과 결과가 같다.
 max_page = pages[-1]
+
+for n in range(max_page):
+    print(f"start={n * 50}")
