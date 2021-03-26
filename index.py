@@ -1,21 +1,5 @@
-import requests
-from bs4 import BeautifulSoup
+from indeed import extract_indeed_pages
 
-indeed_result = requests.get("https://kr.indeed.com/%EC%B7%A8%EC%97%85?q=python&limit=50")
+max_indeed_pages = extract_indeed_pages()
 
-indeed_soup = BeautifulSoup(indeed_result.text, "html.parser")
-
-pagination = indeed_soup.find("div", {"class": "pagination"})
-
-links = pagination.find_all('a')
-pages = []
-for link in links[:-1]:
-    # int로 만들어주기 위해서는 숫자만 있어야하기 때문에
-    # 처음부터 마지막 item을 자르고 for loop를 실행한다
-    pages.append(int(link.string))
-    # <a>안에 <span> 하나만 있고, 그 안에 string이 유일하기 때문에
-    # link.find('span').string과 결과가 같다.
-max_page = pages[-1]
-
-for n in range(max_page):
-    print(f"start={n * 50}")
+print(max_indeed_pages)
