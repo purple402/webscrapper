@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 LIMIT = 50
 URL = f"https://kr.indeed.com/%EC%B7%A8%EC%97%85?q=python&limit={LIMIT}"
 
+
 def extract_indeed_pages():
     result = requests.get(URL)
 
@@ -19,14 +20,16 @@ def extract_indeed_pages():
         pages.append(int(link.string))
         # <a>안에 <span> 하나만 있고, 그 안에 string이 유일하기 때문에
         # link.find('span').string과 결과가 같다.
-        
+
     max_page = pages[-1]
     return max_page
 
+
 def extract_job(html):
-    #job_title
+    # job_title
     title = html.find("h2", {"class": "title"}).find("a")["title"]
-    #company_name
+
+    # company_name
     company = html.find("span", {"class": "company"})
     company_anchor = company.find("a")
     if company_anchor is not None:
@@ -34,7 +37,14 @@ def extract_job(html):
     else:
         company = company.string
     company = company.strip()
-    return {"title": title, "company": company}
+
+    # job_location
+    location = html.find("div", {"class": "recJobLoc"})["data-rc-loc"]
+
+    # link
+    job_id = html["data-jk"]
+    return {"title": title, "company": company, "location": location, "link": f"https://kr.indeed.com/viewjob?jk={job_id}"}
+
 
 def extract_indeed_jobs(last_page):
     jobs = []
