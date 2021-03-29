@@ -31,12 +31,15 @@ def extract_job(html):
 
     # company_name
     company = html.find("span", {"class": "company"})
-    company_anchor = company.find("a")
-    if company_anchor is not None:
-        company = company_anchor.string
+    if conpany:
+        company_anchor = company.find("a")
+        if company_anchor is not None:
+            company = company_anchor.string
+        else:
+            company = company.string
+        company = company.strip()
     else:
-        company = company.string
-    company = company.strip()
+        conpany = None
 
     # job_location
     location = html.find("div", {"class": "recJobLoc"})["data-rc-loc"]
