@@ -12,6 +12,21 @@ def get_last_page():
     return int(last_page)
 
 
+def extract_job(html):
+    # job_title
+    title = html.find("a", {"class": "s-link"})["title"]
+
+    #company_name, job_location
+    company, location = html.find("h3", {"class": "fs-body1"}).find_all("span")
+    company = company.get_text(strip=True)
+    location = location.get_text(strip=True)
+
+    # link
+    job_id = html["data-jobid"]
+
+    return {"title": title, "company": company, "location": location, "link": f"https://stackoverflow.com/jobs/{job_id}"}
+
+
 def extract_jobs(last_page):
     jobs = []
     for page in range(last_page):
