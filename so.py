@@ -17,9 +17,9 @@ def extract_job(html):
     title = html.find("a", {"class": "s-link"})["title"]
 
     #company_name, job_location
-    company, location = html.find("h3", {"class": "fs-body1"}).find_all("span")
-    company = company.get_text(strip=True)
-    location = location.get_text(strip=True)
+    company_row = html.find("h3", {"class": "fs-body1"})
+    company = company_row.find("span").get_text(strip=True)
+    location = company_row.find("span", {"class": "fc-black-500"}).get_text(strip=True)
 
     # link
     job_id = html["data-jobid"]
