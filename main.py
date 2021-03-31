@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect
+from so import get_jobs 
 
 app = Flask("WebScrapper")
 
