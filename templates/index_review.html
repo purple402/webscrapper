@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="shortcut icon" href="#">
     <title>Job Scrapper</title>
 </head>
 <body>
     <div class="greet">
         <h1>welcome!</h1>
         <h1>Find your job</h1>
-        <form>
-            <input placeholder="i.e python" type="text">
-            <button type="submit">See All Results</button>
+        <form method="get" action="/report">
+            <input placeholder="i.e python" required name="word">
+            <button>See All Results</button>
         </form>
     </div>
     <img class="main" src="{{ url_for('static', filename='image/passengers_in_airport.jpg') }}" />
