@@ -1,0 +1,26 @@
+.greet {
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    z-index: 5;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    text-shadow: 4px 3px 0 #7A7A7A;
+    margin: 0px;
+}
+
+body{
+    background: rgb(50, 15, 83);
+}
+
+img {
+    width: 100vw;
+    opacity: 0.9;
+
+}
