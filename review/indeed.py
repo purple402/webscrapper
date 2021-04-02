@@ -23,7 +23,8 @@ def extract_job_info(job_data):
 
 def extract_jobs(last_page):
     jobs = []
-    for page in range(1):
+    for page in range(last_page):
+        print(f"scrapping inndeed page: {page}")
         request = requests.get(f"https://kr.indeed.com/%EC%B7%A8%EC%97%85?q=python&limit=50&start={page}")
         soup = BeautifulSoup(request.text, "html.parser")
         jobs_in_page = soup.find_all("div", {"class": "jobsearch-SerpJobCard"})
@@ -32,5 +33,8 @@ def extract_jobs(last_page):
             jobs.append(job)
     return jobs
 
-last_page = get_last_page()
-jobs = extract_jobs(last_page)
+def get_jobs(word):
+    print(f"review get_jobs in indeed.py")
+    last_page = get_last_page()
+    jobs = extract_jobs(last_page)
+    return jobs
