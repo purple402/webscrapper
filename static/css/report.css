@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Ubuntu+Mono&display=swap');
+
+body{
+    font-family: 'Ubuntu Mono', 'Nanum Gothic', sans-serif;
+    background: rgb(44, 54, 79);
+    color:rgb(229, 201, 53);
+}
+
+#departure {
+    width: 80px;
+    height: 80px;
+    padding-right: 20px;
+}
+
+.title {
+    display: flex;
+}
+
+section {
+    display: grid;
+    grid-auto-rows: minmax(30px, auto);
+    grid-template-columns: 0.3fr 2fr 1fr 0.5fr 0.4fr;
+    align-items: center;
+}
+
+section > span:nth-child(10n+1),
+section > span:nth-child(10n+2),
+section > span:nth-child(10n+3),
+section > span:nth-child(10n+4),
+section > a:nth-child(10n+5) {
+    background-color: #414141
+}
+
+
+a:link {
+    text-decoration: none;
+    color: inherit
+}
+
+a:active {
+    color: inherit;
+}
+
+a:visited {
+    color: rgb(51, 228, 110);
+}
