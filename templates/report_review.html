@@ -9,6 +9,25 @@
     <title>Search Results</title>
 </head>
 <body>
-    <h1>Wow! {{searching_by}} has {{result_number}} jobs!</h1>
+    <h1>{{searching_by}} has {{results_number}} jobs!</h1>
+
+    <div class="title">
+        <img id="departure" src="{{ url_for('static', filename='image/departures.jpg') }}" />
+        <h1>Departure</h1>
+    </div>
+    <section>
+        <h4>Site</h4>
+        <h4>Title</h4>
+        <h4>Company</h4>
+        <h4>Location</h4>
+        <h4>Link</h4>
+        {% for job in jobs %}
+            <span>{{job.site}}</span>
+            <span>{{job.title}}</span>
+            <span>{{job.company}}</span>
+            <span>{{job.location}}</span>
+            <a href="{{job.link}}" target="_blank">Apply</a>
+        {% endfor %}
+    </section>
 </body>
 </html>
