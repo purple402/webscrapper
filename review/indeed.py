@@ -18,7 +18,7 @@ def extract_job_info(job_data):
         company = company_row.get_text(strip=True)
     location = company_row.find("div", {"class": "recJobLoc"})["data-rc-loc"]
     job_id = job_data["data-jk"]
-    return {"title": title, "company": company, "location": location, "link": f"https://kr.indeed.com/viewjob?jk={job_id}"}
+    return {"site": "indeed", "title": title, "company": company, "location": location, "link": f"https://kr.indeed.com/viewjob?jk={job_id}"}
 
 
 def extract_jobs(last_page):
