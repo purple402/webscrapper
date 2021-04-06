@@ -9,12 +9,13 @@
     <title>Search Results</title>
 </head>
 <body>
-    <h1>{{searching_by}} has {{results_number}} jobs!</h1>
-
-    <div class="title">
-        <img id="departure" src="{{ url_for('static', filename='image/departures.jpg') }}" />
-        <h1>Departure</h1>
-    </div>
+    <header>
+        <div class="title">
+            <img id="departure" src="{{ url_for('static', filename='image/departures.jpg') }}" />
+            <h1>Departure</h1>
+        </div>
+        <h1>{{searching_by}} has {{results_number}} jobs!</h1>
+    </header>
     <section>
         <h4>Site</h4>
         <h4>Title</h4>

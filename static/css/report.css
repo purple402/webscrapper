@@ -6,6 +6,12 @@ body{
     color:rgb(229, 201, 53);
 }
 
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 50px;
+}
+
 #departure {
     width: 80px;
     height: 80px;
@@ -16,11 +22,16 @@ body{
     display: flex;
 }
 
+header > h1 {
+    margin-right: 50px;
+}
+
 section {
     display: grid;
     grid-auto-rows: minmax(30px, auto);
     grid-template-columns: 0.3fr 2fr 1fr 0.5fr 0.4fr;
     align-items: center;
+    padding: 0px 70px;
 }
 
 section > span:nth-child(10n+1),
