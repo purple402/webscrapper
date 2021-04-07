@@ -2,9 +2,11 @@
 
 body{
     font-family: 'Ubuntu Mono', 'Nanum Gothic', sans-serif;
-    background: rgb(44, 54, 79);
-    color:rgb(229, 201, 53);
+    background: rgb(41, 42, 46);
+    color:rgb(253, 227, 88);
 }
+
+/* header */
 
 header{
     display: flex;
@@ -23,25 +25,56 @@ header{
 }
 
 header > h1 {
-    margin-right: 50px;
+    margin-right: 30px;
 }
 
-section {
-    display: grid;
-    grid-auto-rows: minmax(30px, auto);
-    grid-template-columns: 0.3fr 2fr 1fr 0.5fr 0.4fr;
-    align-items: center;
-    padding: 0px 70px;
+.date {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px 0px 0px;
+    font-size: 25px;
+    color: rgb(249, 63, 63);
 }
 
-section > span:nth-child(10n+1),
-section > span:nth-child(10n+2),
-section > span:nth-child(10n+3),
-section > span:nth-child(10n+4),
-section > a:nth-child(10n+5) {
-    background-color: #414141
+
+/* table */
+
+table {
+    border-collapse: collapse;
+    margin: 0px 50px;
 }
 
+th, td {
+    text-align: left;
+    padding: 10px;
+}
+
+tr:nth-child(odd) {
+    background-color: #414141;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(46, 70, 132);
+}
+
+tr:hover {
+    background-color: rgb(163, 163, 163);
+    color: black;
+}
+
+tr.header {
+    background-color: transparent;
+    font-size: 20px;
+}
+
+tr.header:hover {
+    background-color: inherit;
+    color: inherit;
+}
+
+span {
+    word-break: keep-all;
+}
 
 a:link {
     text-decoration: none;

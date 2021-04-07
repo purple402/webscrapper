@@ -11,24 +11,54 @@
 <body>
     <header>
         <div class="title">
-            <img id="departure" src="{{ url_for('static', filename='image/departures.jpg') }}" />
+            <img id="departure" src="{{ url_for('static', filename='image/departures.png') }}" />
             <h1>Departure</h1>
         </div>
         <h1>{{searching_by}} has {{results_number}} jobs!</h1>
+        <div class="date">
+            <div class="js-date"></div>
+            <div class="js-time"></div>
+        </div>
     </header>
-    <section>
-        <h4>Site</h4>
-        <h4>Title</h4>
-        <h4>Company</h4>
-        <h4>Location</h4>
-        <h4>Link</h4>
+    <table>
+        <tr class="header">
+            <th>Site</th>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Location</th>
+            <th>Link</th>
+        </tr>
         {% for job in jobs %}
-            <span>{{job.site}}</span>
-            <span>{{job.title}}</span>
-            <span>{{job.company}}</span>
-            <span>{{job.location}}</span>
-            <a href="{{job.link}}" target="_blank">Apply</a>
+        <tr>
+            <th>{{ job.site }}</th>
+            <th>{{ job.title }}</th>
+            <th>{{ job.company }}</th>
+            <th>{{ job.location }}</th>
+            <th><a href="{{ job.link }}" target="_blank">Apply</a></th>
+        </tr>
         {% endfor %}
-    </section>
+    </table>
+
+<script>
+    date_div = document.querySelector(".js-date");
+    time_div = document.querySelector(".js-time")
+    const month = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+
+    function getTime() {
+        var now = new Date();
+        var month_num = now.getMonth();
+        var date = now.getDate();
+        
+        var hour = now.getHours();
+        var min = now.getMinutes();
+
+        date_div.innerHTML = ` ${date} ${month[month_num]}`
+        time_div.innerHTML = `${hour}:${min}`
+    }
+    
+    getTime();
+    setInterval(getTime, 5000);
+
+</script>    
 </body>
 </html>
