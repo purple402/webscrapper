@@ -1,6 +1,7 @@
-from flask import Flask, render_template
 from flask import Flask, render_template, request, redirect
+from so import get_jobs as get_so_jobs
 from indeed import get_jobs as get_indeed_jobs
+from programmers import get_jobs as get_pro_jobs
 
 app = Flask("WebScrapper Review")
 
@@ -19,8 +20,12 @@ def report():
         if existing_job:
             jobs = existing_job
         else:
-            jobs = get_indeed_jobs(word)
+            indeed_jobs = get_indeed_jobs(word)
+            so_jobs = get_so_jobs(word)
+            pro_jobs = get_pro_jobs(word)
+            jobs = pro_jobs + indeed_jobs + so_jobs
             db[word] = jobs
+            
     else:
         return redirect('/')
     return render_template("report_review.html", searching_by=word, jobs=jobs, results_number=len(jobs))
