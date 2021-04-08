@@ -23,7 +23,10 @@ def report():
             indeed_jobs = get_indeed_jobs(word)
             so_jobs = get_so_jobs(word)
             pro_jobs = get_pro_jobs(word)
-            jobs = pro_jobs + indeed_jobs + so_jobs
+            if pro_jobs:
+              jobs = pro_jobs + indeed_jobs + so_jobs
+            else:
+              jobs = indeed_jobs + so_jobs
             db[word] = jobs
             
     else:
