@@ -20,7 +20,7 @@
             <button><i class="fas fa-search fs-sm"></i></button>
             <h1> has {{results_number}} jobs!</h1>
         </form>
-        <div class="date js-date"></div>
+        <div class="date">{{date.day}} {{date.month}}</div>
     </header>
     <table>
         <tr class="header">
@@ -41,20 +41,5 @@
         {% endfor %}
     </table>
 
-<script>
-    date_div = document.querySelector(".js-date");
-    const month = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
-
-    function getDate() {
-        var now = new Date();
-        var month_num = now.getMonth();
-        var date = now.getDate();
-
-        date_div.innerHTML = ` ${date} ${month[month_num]}`;
-    }
-    
-    getDate();
-
-</script>    
 </body>
 </html>
