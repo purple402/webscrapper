@@ -15,10 +15,7 @@
             <h1>Departure</h1>
         </div>
         <h1>{{searching_by}} has {{results_number}} jobs!</h1>
-        <div class="date">
-            <div class="js-date"></div>
-            <div class="js-time"></div>
-        </div>
+        <div class="date js-date"></div>
     </header>
     <table>
         <tr class="header">
@@ -41,23 +38,17 @@
 
 <script>
     date_div = document.querySelector(".js-date");
-    time_div = document.querySelector(".js-time")
     const month = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
 
-    function getTime() {
+    function getDate() {
         var now = new Date();
         var month_num = now.getMonth();
         var date = now.getDate();
-        
-        var hour = now.getHours();
-        var min = now.getMinutes();
 
-        date_div.innerHTML = ` ${date} ${month[month_num]}`
-        time_div.innerHTML = `${hour}:${min}`
+        date_div.innerHTML = ` ${date} ${month[month_num]}`;
     }
     
-    getTime();
-    setInterval(getTime, 5000);
+    getDate();
 
 </script>    
 </body>

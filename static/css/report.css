@@ -31,8 +31,7 @@ header > h1 {
 .date {
     display: flex;
     flex-direction: column;
-    padding: 10px 0px 0px 0px;
-    font-size: 25px;
+    font-size: 35px;
     color: rgb(249, 63, 63);
 }
 
