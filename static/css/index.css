@@ -1,29 +1,35 @@
-.greet {
-    position: absolute;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 95px;
-    z-index: 5;
-}
-
-h1 {
-    color: rgb(255, 255, 255);
-    font-size: 50px;
-    text-shadow: 4px 3px 0 #7A7A7A;
-    margin: 0px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Ubuntu+Mono&display=swap');
 
 body{
+    font-family: 'Ubuntu Mono', 'Nanum Gothic', sans-serif;
     background: rgb(50, 15, 83);
 }
 
 img {
     width: 100vw;
     opacity: 0.9;
-
 }
+
+/* header */
+
+.greet {
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 12vw;
+    z-index: 5;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    font-size: 55px;
+    text-shadow: 4px 3px 0 #7A7A7A;
+    margin: 0px;
+}
+
+/* form */
 
 form {
     margin-top: 100px;
@@ -58,10 +64,17 @@ button {
     top: 10px;
 }
 
+button:hover,
+lobo:hover {
+  cursor: pointer;
+}
+
+/* search from */
+
 .search{
   font-size: 20px;
   margin-bottom: 20px;
-  text-shadow: none;
+  text-shadow: 2px 1px 0 #7A7A7A;
 }
 
 .site {
