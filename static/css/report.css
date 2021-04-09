@@ -11,6 +11,7 @@ body{
 header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 30px 50px;
 }
 
@@ -33,6 +34,76 @@ header > h1 {
     flex-direction: column;
     font-size: 35px;
     color: rgb(249, 63, 63);
+}
+
+
+/* input */
+
+form {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+input {
+    padding: 10px;
+    font-size: 30px;
+    width: 180px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 5px solid rgb(253, 227, 88);
+    margin-right: 10px;
+    text-align: center;
+}
+
+input:focus, button:focus {
+    outline: none;
+}
+
+input:focus {
+  color: rgb(253, 227, 88);
+}
+
+input::placeholder {
+  color: rgb(253, 227, 88);
+  font-family: 'Ubuntu Mono', 'Nanum Gothic', sans-serif;
+  opacity: 1;
+}
+
+input:valid {
+  font-size: 30px;
+  font-family: 'Ubuntu Mono', 'Nanum Gothic', sans-serif;
+  color: rgb(253, 227, 88);
+  background-color: transparent;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+ input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+	  transition: background-color 5000s ease-in-out 0s;
+	  -webkit-transition: background-color 9999s ease-out;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    -webkit-text-fill-color: rgb(253, 227, 88) !important;
+    -webkit-text-size-adjust: 30px;
+   }
+
+button {
+    font-size: 17px;
+    color:rgb(62, 95, 179);
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    left: 170px;
+}
+
+button:hover,
+lobo:hover {
+  cursor: pointer;
 }
 
 
@@ -87,3 +158,4 @@ a:active {
 a:visited {
     color: rgb(51, 228, 110);
 }
+
