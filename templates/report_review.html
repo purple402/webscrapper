@@ -27,7 +27,6 @@
             <th>Site</th>
             <th>Title</th>
             <th>Company</th>
-            <th>Location</th>
             <th>Link</th>
         </tr>
         {% for job in jobs %}
@@ -35,7 +34,6 @@
             <th>{{ job.site }}</th>
             <th>{{ job.title }}</th>
             <th>{{ job.company }}</th>
-            <th>{{ job.location }}</th>
             <th><a href="{{ job.link }}" target="_blank">Apply</a></th>
         </tr>
         {% endfor %}
