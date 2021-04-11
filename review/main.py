@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, send_file
 from datetime import date
 from so import get_jobs as get_so_jobs
 from remoteok import get_jobs as get_ro_jobs
 from wwr import get_jobs as get_wwr_jobs
+from save import save_to_file
 
 """
 These are the URLs that will give you remote jobs for the word 'python'
@@ -34,6 +35,7 @@ def home():
 @app.route('/report')
 def report():
     date = get_date()
+    jobs = []
     word = request.args.get("word")
     if word:
         word = word.lower()
@@ -50,10 +52,21 @@ def report():
                 jobs += ro_jobs
             jobs += so_jobs
             db[word] = jobs
-            
     else:
         return redirect('/')
     return render_template("report_review.html", searching_by=word, jobs=jobs, results_number=len(jobs), date=date)
+
+
+@app.route('/export')
+def export():
+    word = request.args.get("word")
+
+    jobs = db.get(word)
+    save_to_file(word, jobs)
+    print("save file")
+    return send_file(f"{word}.csv", mimetype="text/csv", as_attachment=True)
+
+
 
     
 app.run(host="127.0.0.1", debug=True)
