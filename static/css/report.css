@@ -151,6 +151,19 @@ lobo:hover {
   cursor: pointer;
 }
 
+.export {
+    font-size: 20px;
+}
+
+.export a {
+    display: flex;
+    align-items: center;
+
+}
+
+.fa-arrow-right {
+    margin-right: 5px;
+}
 
 /* table */
 
