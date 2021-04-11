@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 def get_last_page(word):
-    request = requests.get(f"https://stackoverflow.com/jobs?q={word}")
+    request = requests.get(f"https://stackoverflow.com/jobs?r=true&q={word}")
     soup = BeautifulSoup(request.text, "html.parser")
     pages = soup.find("div", {"class": "s-pagination"}).find_all('a')
     last_page = pages[-2].get_text(strip=True)
@@ -15,7 +15,7 @@ def extract_job_info(job_data):
     company = company_row.find("span").get_text(strip=True)
     location = company_row.find("span", {"class": "fc-black-500"}).get_text(strip=True)
     job_id = job_data["data-jobid"]
-    return {"site": "stack overflow", "title": title, "company": company, "location": location, "link": f"https://stackoverflow.com/jobs/{job_id}"}
+    return {"site": "stack overflow", "title": title, "company": company, "link": f"https://stackoverflow.com/jobs/{job_id}"}
 
 
 def extract_jobs(last_page, word):
@@ -25,7 +25,7 @@ def extract_jobs(last_page, word):
 
     for page in range(last_page):
         print(f"scrapping so page: {page}")
-        job_page = requests.get(f"https://stackoverflow.com/jobs?q={word}&pg={page}")
+        job_page = requests.get(f"https://stackoverflow.com/jobs?r=true&q={word}&pg={page}")
         soup = BeautifulSoup(job_page.text, "html.parser")
         jobs_in_page = soup.find_all("div", {"class": "-job"})
         for job_data in jobs_in_page:
