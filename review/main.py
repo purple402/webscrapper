@@ -1,10 +1,21 @@
 from flask import Flask, render_template, request, redirect
 from datetime import date
 from so import get_jobs as get_so_jobs
-from indeed import get_jobs as get_indeed_jobs
-from programmers import get_jobs as get_pro_jobs
+from remoteok import get_jobs as get_ro_jobs
+from wwr import get_jobs as get_wwr_jobs
 
-app = Flask("WebScrapper Review")
+"""
+These are the URLs that will give you remote jobs for the word 'python'
+
+https://stackoverflow.com/jobs?r=true&q=python
+https://weworkremotely.com/remote-jobs/search?term=python
+https://remoteok.io/remote-dev+python-jobs
+
+Good luck!
+"""
+
+
+app = Flask("Remote Job Scrapper")
 
 db = {}
 
@@ -30,13 +41,14 @@ def report():
         if existing_job:
             jobs = existing_job
         else:
-            indeed_jobs = get_indeed_jobs(word)
+            wwr_jobs = get_wwr_jobs(word)
+            ro_jobs = get_ro_jobs(word)
             so_jobs = get_so_jobs(word)
-            pro_jobs = get_pro_jobs(word)
-            if pro_jobs:
-              jobs = pro_jobs + indeed_jobs + so_jobs
-            else:
-              jobs = indeed_jobs + so_jobs
+            if wwr_jobs:
+                jobs += wwr_jobs
+            if ro_jobs:
+                jobs += ro_jobs
+            jobs += so_jobs
             db[word] = jobs
             
     else:
