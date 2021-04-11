@@ -11,16 +11,23 @@
 </head>
 <body>
     <header>
-        <div class="title">
-            <img id="departure" src="{{ url_for('static', filename='image/departures.png') }}" />
-            <h1>Departure</h1>
+        <div class="departures">
+            <i class="fas fa-plane-departure"></i>
+            <h1>Departures</h1>
         </div>
-        <form method="get" action="/report">
-            <input placeholder="{{ searching_by }}" name="word">
-            <button><i class="fas fa-search fs-sm"></i></button>
-            <h1> has {{results_number}} jobs!</h1>
-        </form>
-        <div class="date">{{date.day}} {{date.month}}</div>
+        <div class="title">
+            <a href="/" >
+                <i class="fas fa-arrow-left"></i>
+                <span>Waiting Area</span>
+            </a>
+            <form method="get" action="/report">
+                <input placeholder="{{ searching_by }}" name="word">
+                <button><i class="fas fa-search fs-sm"></i></button>
+                <h1> has {{ results_number }} jobs!</h1>
+            </form>
+            <h1 class="date">{{ date.day }} {{ date.month }}</h1>
+        </div>
+        </div>
     </header>
     <table>
         <tr class="header">
