@@ -22,19 +22,18 @@ header{
 .departures {
     display: flex;
     width: 100%;
-    height: 110px;
     background-color: rgb(253, 227, 88);
     align-items: center;
     border-radius: 10px;
 }
 
 .departures h1 {
-    font-size: 55px;
+    font-size: 45px;
     color: rgb(41, 42, 46);
 }
 
 .fa-plane-departure {
-    font-size: 50px;
+    font-size: 40px;
     padding: 15px;
     margin: 0px 20px;
     background-color: white;
